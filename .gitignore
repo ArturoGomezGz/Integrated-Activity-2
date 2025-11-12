@@ -44,4 +44,6 @@
 # Replit files 
 
 .ccls-cache
-.replitmain
+.replit
+main
+
