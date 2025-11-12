@@ -45,3 +45,6 @@
 
 .ccls-cache
 .replit
+main
+
+_codeql_detected_source_root
