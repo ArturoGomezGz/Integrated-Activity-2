@@ -9,6 +9,16 @@
 
 using namespace std;
 
+// Part 1 (Connect the cities)
+/* Read an input file of a graph represented in a adjacency
+matrix with the weights (distance in km)
+
+Find the optimal way to wire all the cities using the less
+optical fiber 
+
+Create a MST 
+*/
+
 // Part 1: MST using Prim's Algorithm
 vector<pair<pair<int, int>, int>> primMST(vector<vector<int>>& graph, int n) {
     vector<bool> inMST(n, false);
@@ -45,6 +55,16 @@ vector<pair<pair<int, int>, int>> primMST(vector<vector<int>>& graph, int n) {
     
     return mstEdges;
 }
+
+/* Part 2 (Traveling Salesman Problem) 
+Find the shortest possible route that visits each neighborhood 
+exactly once and returns to the neighborhood of origin.
+
+Display the route with cities labeled as A, B, C, etc.
+The first city will be called A, the second B, and so on.
+
+This is a classic TSP (Traveling Salesman Problem).
+*/
 
 // Part 2: TSP - Try all permutations for small graphs
 pair<vector<int>, int> solveTSP(vector<vector<int>>& graph, int n) {
@@ -88,6 +108,19 @@ pair<vector<int>, int> solveTSP(vector<vector<int>>& graph, int n) {
     bestPath.push_back(0);
     return {bestPath, minDist};
 }
+
+/* Part 3 (Maximum Flow Problem)
+Read another square matrix of N x N data representing the maximum 
+capacity of data transmission between neighborhood i and neighborhood j.
+
+The cities have electromagnetic fields that can generate interference,
+which is already reflected in this capacity matrix.
+
+Find the maximum information flow from the initial node to the final node.
+Display this maximum flow in the standard output.
+
+This is a classic Maximum Flow problem.
+*/
 
 // Part 3: Maximum Flow using Ford-Fulkerson with BFS (Edmonds-Karp)
 bool bfs(vector<vector<int>>& residualGraph, int s, int t, vector<int>& parent, int n) {
@@ -138,6 +171,18 @@ int maxFlow(vector<vector<int>>& capacity, int s, int t, int n) {
     
     return maxFlowValue;
 }
+
+/* Part 4 (Closest Exchange/Central)
+Given the geographic location of several "exchanges" (centrals) to which 
+new homes can be connected, determine which exchange is geographically 
+closest to a new service contract.
+
+Note: There is not necessarily one exchange for each neighborhood.
+- Some neighborhoods may have no central
+- Some neighborhoods may have more than one central
+
+Find the closest exchange for any new contract location.
+*/
 
 // Part 4: Voronoi diagram - find closest point
 double distance(pair<double, double> p1, pair<double, double> p2) {
