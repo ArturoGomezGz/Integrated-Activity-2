@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -49,6 +50,19 @@ Find the closest exchange for any new contract location.
 */
 
 int main() {
+
+    ifstream file("inputs/input.txt");
+
+    if (!file.is_open()){
+        cout << "Error opening file" << endl;
+    }
+
+    string line;
+
+    while (getline(file, line)){
+        cout << line << endl;
+    }
+    
     cout << "Hello, world!" << endl;
     return 0;
 }
